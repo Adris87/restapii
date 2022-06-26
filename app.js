@@ -98,7 +98,16 @@ app.get('/docs', isAuthenticated, async (req, res) => {
     layout: 'layouts/main'
   });
 });
-
+app.get('/islamic', (req, res) => {
+	  addVisitor()
+  let { apikey, username, limit } = req.user
+  
+  res.render('islamic', {
+    username,
+	apikey,
+    layout: 'layouts/main'
+  });
+});
 app.get('/anime', (req, res) => {
 	  addVisitor()
   let { apikey, username, limit } = req.user
@@ -145,6 +154,7 @@ app.get('/asupan', (req, res) => {
   
   res.render('asupan', {
     username,
+apikey: apikey,
     layout: 'layouts/main'
   });
 });
