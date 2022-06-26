@@ -6,7 +6,7 @@ const { limitCount } = require('../lib/settings');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-if(req.user.username !== 'Administrator') return res.redirect('/dosc')
+if(req.user.username !== 'Administrator') return res.redirect('/pricing')
     res.render('premium/index', {
         layout: 'layouts/main'
     })
