@@ -26,7 +26,6 @@ const { cakLontong, bijak, quotes, fakta, ptl, motivasi } = require('../controll
 const { photoOxy } = require('./oxy');
 const { download_Url } = require("../lib/function");
 const { twitterDl, stalkIg, storyIg, pinterestSearch, linkWhatsapp, Play, Wp, Char, Solat, LirikLagu, Surat, TebakGambar, Komiku, OnGoing, Covid19, Otakudesu, ig2 } = require ('../lib/paket')
-const { color, bgcolor } = require(__path + '/lib/color.js');
 const { fetchJson } = require(__path + '/lib/fetcher.js');
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const path = require('path');
