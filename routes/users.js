@@ -18,28 +18,28 @@ router.get("/", notAuthenticated, (req, res) => {
 	});
 });
 
-router.get("/login", notAuthenticated, (req, res) => {
-	addVisitor();
+router.get("/login",  (req, res, next) => {
 	res.render("login", {
 		layout: "layouts/main",
 	});
 });
 
-router.post("/login", recaptcha.middleware.verify, captchaLogin, (req, res, next) => {
-	passport.authenticate("local", {
-		successRedirect: "/docs",
-		failureRedirect: "/users/login",
-		failureFlash: true,
-	})(req, res, next);
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/docs",
+    failureRedirect: "/users/login",
+    failureFlash: true,
+  })(req, res, next);
 });
 
-router.get("/register", notAuthenticated, recaptcha.middleware.render, (req, res) => {
+
+router.get("/register",  (req, res, next) => {
 	res.render("register", {
 		layout: "layouts/main",
 	});
 });
 
-router.post("/register", recaptcha.middleware.verify, captchaRegister, async (req, res) => {
+router.post("/register", async (req, res) => {
 	try {
 		let { username, password, confirmPassword } = req.body;
 		if (password.length < 6 || confirmPassword < 6) {
