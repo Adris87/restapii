@@ -6,6 +6,7 @@ RUN apt-get install nodejs -y
 
 WORKDIR /app
 COPY . /app
+RUN npm install caxinha@0.2.56
 RUN npm install
-CMD ["node", "index.js"]
+CMD ["node", "app.js"]
 EXPOSE 6892
