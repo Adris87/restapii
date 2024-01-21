@@ -34,7 +34,6 @@ router.post("/login", recaptcha.middleware.verify, captchaLogin, (req, res, next
 
 router.get("/register", notAuthenticated, recaptcha.middleware.render, (req, res) => {
 	res.render("register", {
-		recaptcha: res.recaptcha,
 		layout: "layouts/main",
 	});
 });
