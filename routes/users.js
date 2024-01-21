@@ -19,8 +19,7 @@ router.get("/", notAuthenticated, (req, res) => {
 });
 
 router.get("/login", notAuthenticated, recaptcha.middleware.render, (req, res) => {
-	res.render("login", {
-		recaptcha: res.recaptcha,
+	res.render("login", 
 		layout: "layouts/main",
 	});
 });
